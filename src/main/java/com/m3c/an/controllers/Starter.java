@@ -1,9 +1,11 @@
 package com.m3c.an.controllers;
 
+import com.m3c.an.models.BTree;
+
 public class Starter
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        BTree bTree = new BTree;
     }
 }

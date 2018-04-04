@@ -3,7 +3,7 @@ package com.m3c.an.models;
 import com.m3c.an.BinaryTree;
 import com.m3c.an.controllers.ElementNotFoundException;
 
-import java.util.List;
+import java.util.*;
 
 public class BTree implements BinaryTree {
 
@@ -103,6 +103,25 @@ public class BTree implements BinaryTree {
         throw new ElementNotFoundException();
     }
 
+    public List<Integer> getSortedTreeAsc() {
+        return SortTreeAsc(this.getRoot(), new ArrayList<Integer>());
+    }
+
+    private List<Integer> SortTreeAsc(Node node, List<Integer> result) {
+
+        if (node.getLeft() != null) {
+            SortTreeAsc(node.getLeft(), result);
+        }
+
+        result.add(node.getValue());
+
+        if (node.getRight() != null) {
+            SortTreeAsc(node.getRight(), result);
+        }
+
+        return result;
+    }
+
     public int getMinimum() {
         Node node = getRoot();
         int candidate = node.getValue();
@@ -123,13 +142,22 @@ public class BTree implements BinaryTree {
         return candidate;
         }
 
-
-    public List<Integer> getSortedTreeAsc() {
-        List<Integer> candidate;
-        return null;
+    public List<Integer> getSortedTreeDesc() {
+        return SortTreeDesc(this.getRoot(), new ArrayList<Integer>());
     }
 
-    public List<Integer> getSortedTreeDesc() {
-        return null;
+    private List<Integer> SortTreeDesc(Node node, List<Integer> result) {
+
+        if (node.getRight() != null) {
+            SortTreeDesc(node.getRight(), result);
+        }
+
+        result.add(node.getValue());
+
+        if (node.getLeft() != null) {
+            SortTreeDesc(node.getLeft(), result);
+        }
+
+        return result;
     }
 }

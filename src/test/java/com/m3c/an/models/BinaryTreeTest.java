@@ -4,9 +4,8 @@ import com.m3c.an.controllers.ElementNotFoundException;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 public class BinaryTreeTest {
 
@@ -60,7 +59,7 @@ public class BinaryTreeTest {
         BTree bTree = new BTree(5);
         int[] array = {1, 3, 4, 8, 10, 11};
         bTree.addElements(array);
-        Assert.assertEquals(8, bTree.getLeftChild(5));
+        Assert.assertEquals(1, bTree.getLeftChild(5));
     }
     @Test
     public void testGetMinimum() {
@@ -80,8 +79,33 @@ public class BinaryTreeTest {
     public void TestGetSortedTreeAsc() {
         BTree bTree = new BTree(5);
         int[] array = {11, 3, 8, 4, 10, 7, 15};
-        int[] arraySorted = {3, 4, 7, 8, 10, 11, 15};
+        List<Integer> arraySorted = new ArrayList<Integer>();
+        arraySorted.add(3);
+        arraySorted.add(4);
+        arraySorted.add(5);
+        arraySorted.add(7);
+        arraySorted.add(8);
+        arraySorted.add(10);
+        arraySorted.add(11);
+        arraySorted.add(15);
         bTree.addElements(array);
         Assert.assertEquals(arraySorted, bTree.getSortedTreeAsc());
+    }
+
+    @Test
+    public void TestGetSortedTreeDesc() {
+        BTree bTree = new BTree(5);
+        int[] array = {11, 3, 8, 4, 10, 7, 15};
+        List<Integer> arraySorted = new ArrayList<Integer>();
+        arraySorted.add(15);
+        arraySorted.add(11);
+        arraySorted.add(10);
+        arraySorted.add(8);
+        arraySorted.add(7);
+        arraySorted.add(5);
+        arraySorted.add(4);
+        arraySorted.add(3);
+        bTree.addElements(array);
+        Assert.assertEquals(arraySorted, bTree.getSortedTreeDesc());
     }
 }

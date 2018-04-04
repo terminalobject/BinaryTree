@@ -6,6 +6,6 @@ public class Starter
 {
     public static void main( String[] args )
     {
-        BTree bTree = new BTree;
+        BTree bTree = new BTree(5);
     }
 }

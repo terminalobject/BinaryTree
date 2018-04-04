@@ -1,9 +1,5 @@
-package com.m3c.an;
+package com.m3c.an.controllers;
 
-/**
- * Hello world!
- *
- */
 public class Starter
 {
     public static void main( String[] args )

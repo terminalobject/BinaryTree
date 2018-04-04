@@ -1,5 +1,7 @@
 package com.m3c.an;
 
+import com.m3c.an.controllers.ElementNotFoundException;
+
 import java.util.List;
 
 /**
